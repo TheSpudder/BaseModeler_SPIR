@@ -84,8 +84,10 @@ double dbm_to_watts(double dbm) {
 }
 
 /* Convert Watts to dBm and return the result */
-double
-watts_to_dbm(double watts);
+double watts_to_dbm(double watts) {
+    double result = 10 * log10(watts) + 30;
+    return result;
+}
 
 /* Calculate total antenna gain as seen from coordinate (X,Y,Z) `pos'
  * First find the azimuth between the Tx and the coordinate
