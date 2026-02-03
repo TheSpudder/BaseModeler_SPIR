@@ -6,6 +6,7 @@
 //#include <proj.h>
 
 #define PI 3.1415926535897931
+#define c 299792458.0
 
 /* NOTE: -X is westing, +X is easting, -Y is southing, +Y is northing */
 enum Dimension{X, Y, Z};
@@ -108,8 +109,15 @@ antenna_gain(Tx *tx, VPat vertical, HPat horizontal, Point pos);
 /* Return the freespace path loss over the given distance
  * Relevant transmission parameters will be supplied in `tx'
  * See equation 3 in this paper https://ieeexplore.ieee.org/document/7504435 */
-double fspl(Tx *tx, double distance);
-
+double fspl(Tx *tx, double distance) {
+    double result = 0;
+    double f = tx-> freq;
+    if (f <= 0) {
+        return -INFINITY;
+    }
+    result = 20 * log10((4* PI * f)/c);
+    return result;
+}
 /* Return the log distance path loss over the given distance with parameter/exponent `n'
  * Do not include Gaussian noise
  * Relevant transmission parameters will be supplied in `tx'
