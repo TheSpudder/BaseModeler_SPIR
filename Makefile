@@ -9,7 +9,7 @@ OBJ := $(SRC:.c=.o)
 
 # Tests
 # Add test names here (without .c)
-MYTESTS := test_test_dbm_to_watts
+MYTESTS := test_test_dbm_to_watts test_test_watts_to_dbm
 
 # Default rule: just make sure base.c compiles
 all: $(OBJ)

@@ -13,7 +13,7 @@ int main (int argc, char **argv) {
     double expected = 0.01;
     printf("\n");
     printf("Test 1 [10dbm]: Expected: %f W\nActual: %f W\n", expected, result);
-    if (fabs(result - expected < 0.0001)) {
+    if (fabs(result - expected) < 0.0001) {
         puts("passed\n");
     }
     else {
@@ -24,7 +24,7 @@ int main (int argc, char **argv) {
     result = dbm_to_watts(64);
     expected = 2511.8864;
     printf("Test 2 [64dbm]: Expected: %f W\nActual: %f W\n", expected, result);
-    if (fabs(result - expected < 0.0001)) {
+    if (fabs(result - expected) < 0.0001) {
             puts("passed");
     }
     else {

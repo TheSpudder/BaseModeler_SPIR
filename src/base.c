@@ -108,8 +108,7 @@ antenna_gain(Tx *tx, VPat vertical, HPat horizontal, Point pos);
 /* Return the freespace path loss over the given distance
  * Relevant transmission parameters will be supplied in `tx'
  * See equation 3 in this paper https://ieeexplore.ieee.org/document/7504435 */
-double
-fspl(Tx *tx, double distance);
+double fspl(Tx *tx, double distance);
 
 /* Return the log distance path loss over the given distance with parameter/exponent `n'
  * Do not include Gaussian noise
