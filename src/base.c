@@ -112,10 +112,10 @@ antenna_gain(Tx *tx, VPat vertical, HPat horizontal, Point pos);
 double fspl(Tx *tx, double distance) {
     double result = 0;
     double f = tx-> freq;
-    if (f <= 0) {
+    if (f <= 0 || distance < 0) {
         return -INFINITY;
     }
-    result = 20 * log10((4* PI * f)/c);
+    result = 20 * log10((4* PI * distance * f)/c);
     return result;
 }
 /* Return the log distance path loss over the given distance with parameter/exponent `n'
