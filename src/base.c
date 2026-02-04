@@ -123,7 +123,22 @@ double fspl(Tx *tx, double distance) {
  * Relevant transmission parameters will be supplied in `tx'
  * See equation 2 in this paper https://ieeexplore.ieee.org/document/7504435 */
 double
-log_distance(Tx *tx, double distance, double n);
+log_distance(Tx *tx, double distance, double n)
+{
+    if (tx == NULL) {
+        return -INFINITY;
+    }
+    if (distance <= 0 || n <= 0) {
+        return -INFINITY;
+    }
+    const double d = 1.0;
+    double L = fspl(tx, 0);
+    if (!isfinite(L)) {
+        return -INFINITY;
+    }
+    double Ld = L + 10.0 * n * log10(distance / d);
+    return Ld;
+}
 
 /* Return the alpha-beta path loss over the given distance with the given parameters
  * Do not include Gaussian noise
