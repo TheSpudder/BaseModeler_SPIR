@@ -155,30 +155,30 @@ double alpha_beta(Tx *tx, double distance, double alpha, double beta);
 double
 base_loss(Tx *tx, VPat vertical, HPat horizontal, Point rx, double *params, BaseModel model);
 
-/*int main(int argc, char **argv)
-{
-	int topology_cnt;
-	VPat vertical[181];
-        HPat horizontal[360];
-	//VPat HPathorizontal[365];
-	Tx *tx;
-	if(argc < 2){
-		fprintf(stderr, "usage: ./gprop <topology> <pattern>\n");
-		return 0;
-	}
-	tx = read_topology(argv[1], &topology_cnt);
-	if(tx == NULL){
-		fprintf(stderr, "failed to read topology\n");
-		return 1;
-	}
-	if(!read_pattern(argv[2], vertical, horizontal)){
-		fprintf(stderr, "failed to read antenna pattern\n");
-		free(tx);
-		return 1;
-	}
-	printf("success\n");
-	free(tx);
-	return 0;
-}
-*/
+// int main(int argc, char **argv)
+// {
+// 	int topology_cnt;
+// 	VPat vertical[181];
+//         HPat horizontal[360];
+// 	//VPat HPathorizontal[365];
+// 	Tx *tx;
+// 	if(argc < 2){
+// 		fprintf(stderr, "usage: ./gprop <topology> <pattern>\n");
+// 		return 0;
+// 	}
+// 	tx = read_topology(argv[1], &topology_cnt);
+// 	if(tx == NULL){
+// 		fprintf(stderr, "failed to read topology\n");
+// 		return 1;
+// 	}
+// 	if(!read_pattern(argv[2], vertical, horizontal)){
+// 		fprintf(stderr, "failed to read antenna pattern\n");
+// 		free(tx);
+// 		return 1;
+// 	}
+// 	printf("success\n");
+// 	free(tx);
+// 	return 0;
+// }
+
 
