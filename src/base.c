@@ -109,7 +109,11 @@ antenna_gain(Tx *tx, VPat vertical, HPat horizontal, Point pos);
 /* Return the freespace path loss over the given distance
  * Relevant transmission parameters will be supplied in `tx'
  * See equation 3 in this paper https://ieeexplore.ieee.org/document/7504435 */
-double fspl(Tx *tx, double distance) {
+double fspl(Tx *tx, double distance)
+{
+    if (tx == NULL){
+        return -INFINITY;
+    }
     double result = 0;
     double f = tx-> freq;
     if (f <= 0 || distance < 0) {
@@ -132,10 +136,7 @@ log_distance(Tx *tx, double distance, double n)
         return -INFINITY;
     }
     const double d = 1.0;
-    double L = fspl(tx, 0);
-    if (!isfinite(L)) {
-        return -INFINITY;
-    }
+    double L = fspl(tx, d);
     double Ld = L + 10.0 * n * log10(distance / d);
     return Ld;
 }
@@ -182,3 +183,4 @@ base_loss(Tx *tx, VPat vertical, HPat horizontal, Point rx, double *params, Base
 	return 0;
 }
 */
+
