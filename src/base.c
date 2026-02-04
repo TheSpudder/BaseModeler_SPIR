@@ -144,8 +144,7 @@ double log_distance(Tx *tx, double distance, double n)
  * Do not include Gaussian noise
  * Relevant transmission parameters will be supplied in `tx'
  * See equation 1 in this paper https://ieeexplore.ieee.org/document/7504435 */
-double
-alpha_beta(Tx *tx, double distance, double alpha, double beta);
+double alpha_beta(Tx *tx, double distance, double alpha, double beta);
 
 /* Compute the total given the Tx, antenna pattern, Rx, and chosen propagation model
  * Assume `params' is already allocated and contains the expected number of elements
