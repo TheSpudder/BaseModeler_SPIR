@@ -34,4 +34,20 @@ int main(int argc, char **argv) {
     if (fabs(result - expected) < 0.01) puts("passed\n");
     else puts("failed test 3\n");
 
+    //Test 4
+    tx.freq = 2.4e9;
+    result = log_distance(&tx, -5.0, 2.0);
+    expected = -INFINITY;
+    printf("Test 4 [Invalid distance]\n");
+    if (result == expected) puts("passed\n");
+    else puts("failed test 4\n");
+
+    //Test 5
+    result = log_distance(NULL, 10.0, 2.0);
+    expected = -INFINITY;
+    printf("Test 5 [Invalid tx]\n");
+    if (result == expected) puts("passed\n");
+    else puts("failed test 5\n");
+    return 0;
+
 }
