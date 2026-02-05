@@ -126,6 +126,8 @@ double fspl(Tx *tx, double distance)
  * Do not include Gaussian noise
  * Relevant transmission parameters will be supplied in `tx'
  * See equation 2 in this paper https://ieeexplore.ieee.org/document/7504435 */
+
+// ALVI RASHID
 double log_distance(Tx *tx, double distance, double n)
 {
     if (tx == NULL) {
@@ -144,6 +146,7 @@ double log_distance(Tx *tx, double distance, double n)
  * Do not include Gaussian noise
  * Relevant transmission parameters will be supplied in `tx'
  * See equation 1 in this paper https://ieeexplore.ieee.org/document/7504435 */
+//ALVI RASHID
 double alpha_beta(Tx *tx, double distance, double alpha, double beta)
 {
     if (tx == NULL) {

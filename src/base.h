@@ -18,6 +18,7 @@ double dbm_to_watts(double dbm);
 double watts_to_dbm(double watts);
 double fspl(Tx *tx, double distance);
 double log_distance(Tx *tx, double distance, double n);
+double alpha_beta(Tx *tx, double distance, double alpha, double beta);
 
 
 #endif
