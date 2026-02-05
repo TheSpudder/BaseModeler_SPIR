@@ -136,7 +136,7 @@ double log_distance(Tx *tx, double distance, double n)
     }
     const double d = 1.0;
     double L = fspl(tx, d);
-    double Ld = L + 10.0 * n * log10(distance / d);
+    double Ld = L + 10.0 * n * log10(distance);
     return Ld;
 }
 
@@ -144,7 +144,19 @@ double log_distance(Tx *tx, double distance, double n)
  * Do not include Gaussian noise
  * Relevant transmission parameters will be supplied in `tx'
  * See equation 1 in this paper https://ieeexplore.ieee.org/document/7504435 */
-double alpha_beta(Tx *tx, double distance, double alpha, double beta);
+double alpha_beta(Tx *tx, double distance, double alpha, double beta)
+{
+    if (tx == NULL) {
+        return -INFINITY;
+    }
+    if (distance <= 0.0 || tx->freq <= 0.0) {
+        return -INFINITY;
+    }
+
+    const double f_ghz = tx->freq / 1e9;
+
+    return 10.0 * alpha * log10(distance/1) + beta + 10.0 * log10(f_ghz);
+}
 
 /* Compute the total given the Tx, antenna pattern, Rx, and chosen propagation model
  * Assume `params' is already allocated and contains the expected number of elements
