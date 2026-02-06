@@ -68,14 +68,12 @@ read_pattern(char *path, VPat *vertical, HPat *horizontal);
 
 /* Return the azimuth in degrees of the ray that passes through both points
  * This angle should be wrapped to be between 0 and 360 degrees */
-double
-relative_azimuth(Point tx, Point rx);
+double relative_azimuth(Point tx, Point rx);
 
 /* Return the angle in degrees relative to the horizon of the line that points from Tx to Rx
  * If this line points towards the ground, this angle will be negative
  * This angle should be wrapped to be between -90 and +90 degrees */
-double
-relative_downtilt(Point tx, Point rx);
+double relative_downtilt(Point tx, Point rx);
 
 /* Convert dBm to Watts and return the result */
 double dbm_to_watts(double dbm) {
